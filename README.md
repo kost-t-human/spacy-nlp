@@ -24,10 +24,20 @@ Expose Spacy nlp text parsing to Nodejs (and other languages) via socketIO
 ## Installation
 
 ```shell
+# install python3.8
+sudo apt-get install software-properties-common
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt-get update
+sudo apt-get install python3.8
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 1
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 2
+sudo update-alternatives --config python3 #2
+sudo apt-get install python3.8-distutils
+
 # install spacy in python3
 python3 -m pip install -U socketIO-client-nexus
-python3 -m pip install -U spacy==2.1.3
-python3 -m spacy download en_core_web_md
+python3 -m pip install -U spacy # params for version: spacy==3.5
+python3 -m spacy download ru_core_news_md #
 
 # install this npm package
 npm i --save spacy-nlp
@@ -66,6 +76,8 @@ Once it is ready, i.e. you can use the nodejs client `nlp` to parse texts:
 
 ```js
 const spacyNLP = require("spacy-nlp");
+//const serverPromise = spacyNLP.server({ port: 6466 });
+const serverPromise = spacyNLP.server({ port: process.env.IOPORT });
 const nlp = spacyNLP.nlp;
 
 // Note you can pass multiple sentences concat in one string.
