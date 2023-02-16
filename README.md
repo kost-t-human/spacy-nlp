@@ -81,10 +81,17 @@ const serverPromise = spacyNLP.server({ port: process.env.IOPORT });
 const nlp = spacyNLP.nlp;
 
 // Note you can pass multiple sentences concat in one string.
-nlp.parse("Bob Brought the pizza to Alice.").then(output => {
-  console.log(output);
-  console.log(JSON.stringify(output[0].parse_tree, null, 2));
-});
+nlp
+  .parse(text)
+  .then(output => {
+    output.forEach((out)=>{
+      console.log('output',JSON.stringify(out));
+      out.parse_list.forEach((item)=>{
+        console.log(item);
+      })
+    })
+  });
+
 
 // Store output into variable
 const result = await nlp.parse("Bob Brought the pizza to Alice.");
