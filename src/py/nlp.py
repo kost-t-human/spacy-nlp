@@ -73,7 +73,7 @@ def parse_sentence(sentence):
         ("text", doc.text),
         ("len", len(doc)),
         ("tokens", [token.text for token in doc]),
-        ("noun_phrases", [token.text for token in doc.noun_chunks]),
+        #("noun_phrases", [token.text for token in doc.noun_chunks]), #error in spacy ver 3.5
         ("parse_tree", parse_tree(doc)),
         ("parse_list", parse_list(doc))
     ])
