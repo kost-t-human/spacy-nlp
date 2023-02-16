@@ -103,7 +103,7 @@ And the output is the syntax parse tree with POS tagging. For the `parse_tree`, 
 [ { text: 'Bob Brought the pizza to Alice.',
     len: 7,
     tokens: [ 'Bob', 'Brought', 'the', 'pizza', 'to', 'Alice', '.' ],
-    noun_phrases: [ 'Bob', 'the pizza', 'Alice' ],
+    //noun_phrases: [ 'Bob', 'the pizza', 'Alice' ],
     parse_tree:
      [ { word: 'Brought',
          lemma: 'bring',
